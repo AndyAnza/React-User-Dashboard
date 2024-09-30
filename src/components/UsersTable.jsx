@@ -12,10 +12,12 @@ export default function UsersTable() {
         <thead>
           <tr>
             <th scope='col'>Avatar</th>
-            <th scope='col'>Nationality</th>
-            <th scope='col'>Title</th>
+
             <th scope='col'>First Name</th>
             <th scope='col'>Last Name</th>
+            <th scope='col'>Gender</th>
+            <th scope='col'>Age</th>
+            <th scope='col'>Nationality</th>
             <th scope='col'>Email</th>
           </tr>
         </thead>
@@ -25,10 +27,12 @@ export default function UsersTable() {
               <th scope='row'>
                 <img src={user.picture.thumbnail} alt='User Thumbnail' />
               </th>
-              <td>{user.nat}</td>
-              <td>{user.name.title}</td>
+
               <td>{user.name.first}</td>
               <td>{user.name.last}</td>
+              <td>{user.gender}</td>
+              <td>{user.dob.age}</td>
+              <td>{user.nat}</td>
               <td>{user.email}</td>
             </tr>
           ))}
@@ -37,4 +41,3 @@ export default function UsersTable() {
     </>
   );
 }
-
