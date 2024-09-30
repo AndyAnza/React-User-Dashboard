@@ -1,12 +1,13 @@
 import React from 'react';
 import useAuthRedirect from '../hooks/useAuthRedirect';
+import UsersTable from '../components/UsersTable';
 
 export default function UsersList() {
   useAuthRedirect();
 
   return (
     <>
-      <h2>Users List Page</h2>
+      <UsersTable />
     </>
   );
 }
