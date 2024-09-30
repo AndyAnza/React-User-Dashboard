@@ -1,18 +1,10 @@
-import { useEffect, useState } from 'react';
-import axios from 'axios';
+import { useUsers } from '../context/UsersProvider';
 
 export default function UsersTable() {
-  const [users, setUsers] = useState([]);
+  const { users, loading, error } = useUsers();
 
-  useEffect(() => {
-    axios
-      .get(`https://randomuser.me/api/?results=30`)
-      .then((response) => {
-        console.log(response.data.results);
-        setUsers(response.data.results);
-      })
-      .catch((error) => console.error(`Something went wrong:${error.message}`));
-  }, []);
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error: {error.message}</p>; // Display error if it occurs
 
   return (
     <>
@@ -29,7 +21,7 @@ export default function UsersTable() {
         </thead>
         <tbody>
           {users.map((user) => (
-            <tr key={Math.random()}>
+            <tr key={user.login.uuid}>
               <th scope='row'>
                 <img src={user.picture.thumbnail} alt='User Thumbnail' />
               </th>
@@ -45,3 +37,4 @@ export default function UsersTable() {
     </>
   );
 }
+
