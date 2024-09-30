@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useUsers } from '../context/UsersProvider';
 
 export default function Filters() {
-  const { applyFilters, filtersData } = useUsers();
+  const { applyFilters, filtersData, users, exportToCSV } = useUsers();
   const { nationalities, ages } = filtersData;
 
   const [gender, setGender] = useState('All');
@@ -61,6 +61,11 @@ export default function Filters() {
           <option key={index} value={age}>{`${age} - ${age + 9}`}</option>
         ))}
       </select>
+
+      {/*CSV button  */}
+      <button onClick={() => exportToCSV(users, 'filtered_users')}>
+        Export to CSV
+      </button>
     </form>
   );
 }

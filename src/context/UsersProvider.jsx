@@ -89,6 +89,42 @@ export function UsersProvider({ children }) {
     [users]
   ); // Dependencies: users only
 
+  const exportToCSV = async (data, fileName) => {
+    // Create CSV headers (the first row of the CSV file)
+    const csvHeader = 'Name,Last,Gender,Nationality,Age\n';
+
+    // Create CSV rows (each user's data as a row)
+    let csvRows = '';
+
+    // Loop through the data (filtered or all users) to format each user as a CSV row
+    data.forEach((user) => {
+      const row = `${user.name.first},${user.name.last},${user.gender},${user.nat},${user.dob.age}\n`;
+      csvRows += row;
+    });
+
+    // Combine the header and rows into the final CSV content
+    const csvContent = csvHeader + csvRows;
+
+    // Create a Blob object from the CSV content
+    const blob = new Blob([csvContent], { type: 'text/csv' });
+
+    // Create a URL for the Blob so it can be downloaded
+    const href = URL.createObjectURL(blob);
+
+    // Create a temporary link element to trigger the download
+    const link = document.createElement('a');
+    link.href = href;
+    link.download = `${fileName}.csv`; // The name of the downloaded file
+
+    // Add the link to the DOM, click it to download, and then remove it
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+
+    // Notify the user that the CSV export is complete
+    alert('CSV export completed successfully.');
+  };
+
   return (
     <UsersContext.Provider
       value={{
@@ -97,6 +133,7 @@ export function UsersProvider({ children }) {
         error,
         filtersData,
         applyFilters,
+        exportToCSV,
       }}
     >
       {children}
