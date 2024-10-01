@@ -129,6 +129,7 @@ export function UsersProvider({ children }) {
     <UsersContext.Provider
       value={{
         users: filteredUsers,
+        setUsers,
         loading,
         error,
         filtersData,
