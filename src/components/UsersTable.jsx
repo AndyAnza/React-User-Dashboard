@@ -19,6 +19,7 @@ export default function UsersTable() {
             <th scope='col'>Age</th>
             <th scope='col'>Nationality</th>
             <th scope='col'>Email</th>
+            <th scope='col'>Profile</th>
           </tr>
         </thead>
         <tbody>
@@ -34,6 +35,17 @@ export default function UsersTable() {
               <td>{user.dob.age}</td>
               <td>{user.nat}</td>
               <td>{user.email}</td>
+              <td>
+                <a
+                  href={`users/${user.login.uuid}`}
+                  onClick={() => {
+                    localStorage.removeItem('user');
+                    localStorage.setItem('user', JSON.stringify(user));
+                  }}
+                >
+                  Profile
+                </a>
+              </td>
             </tr>
           ))}
         </tbody>
