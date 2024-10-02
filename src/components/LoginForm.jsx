@@ -4,9 +4,10 @@ import '../assets/css/login.css';
 
 export default function LoginForm() {
   const admin = {
-    username: 'admin1234',
-    password: 'password1234',
+    username: import.meta.env.VITE_ADMIN_USERNAME,
+    password: import.meta.env.VITE_ADMIN_PASSWORD,
   };
+
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
