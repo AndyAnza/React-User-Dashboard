@@ -10,7 +10,6 @@ export default function Filters() {
   const [nationality, setNationality] = useState('');
   const [ageRange, setAgeRange] = useState('');
 
-  // Apply filters dynamically when any filter changes
   useEffect(() => {
     function applyDynamicFilters() {
       applyFilters({ gender, nationality, ageRange });
@@ -28,7 +27,7 @@ export default function Filters() {
             id='gender'
             name='gender'
             value={gender}
-            onChange={(e) => setGender(e.target.value)} // Update gender state on change
+            onChange={(e) => setGender(e.target.value)}
           >
             <option value='All'>All</option>
             <option value='female'>Female</option>
@@ -43,7 +42,7 @@ export default function Filters() {
             id='nationality'
             name='nationality'
             value={nationality}
-            onChange={(e) => setNationality(e.target.value)} // Update nationality state
+            onChange={(e) => setNationality(e.target.value)}
           >
             <option value=''>All</option>
             {nationalities.map((nat, index) => (
@@ -61,7 +60,7 @@ export default function Filters() {
             id='ageRange'
             name='ageRange'
             value={ageRange}
-            onChange={(e) => setAgeRange(parseInt(e.target.value))} // Update age range state
+            onChange={(e) => setAgeRange(parseInt(e.target.value))}
           >
             <option value=''>All</option>
             {ages.map((age, index) => (

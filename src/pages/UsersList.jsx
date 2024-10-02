@@ -5,7 +5,7 @@ import Header from '../components/Header';
 import { UsersProvider } from '../context/UsersProvider';
 import Filters from '../components/Filters';
 
-export default function UsersList() {
+export default function UsersList({message, setMessage, closeModal, setCloseModal}) {
   useAuthRedirect();
 
   return (
@@ -14,7 +14,7 @@ export default function UsersList() {
       <div className='main'>
         <UsersProvider>
           <Filters />
-          <UsersTable />
+          <UsersTable message={message} setMessage={setMessage} closeModal={closeModal} setCloseModal={setCloseModal}/>
         </UsersProvider>
       </div>
     </div>
