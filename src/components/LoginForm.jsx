@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import '../assets/css/login.css';
 
 export default function LoginForm() {
   const admin = {
@@ -29,30 +30,32 @@ export default function LoginForm() {
   }
 
   return (
-    <div className='login-form'>
-      <form onSubmit={loginHandler}>
+    <div className='login-section'>
+      <form onSubmit={loginHandler} className='login-form'>
         <h2>Login</h2>
-        <input
-          type='text'
-          id='user'
-          minLength={5}
-          maxLength={15}
-          placeholder='Username'
-          required
-          value={username}
-          onChange={usernameHandler}
-        ></input>
-        <input
-          type='password'
-          id='password'
-          placeholder='Password'
-          minLength={12}
-          maxLength={64}
-          required
-          value={password}
-          onChange={passwordHandler}
-        ></input>
-        <button type='submit'>Login</button>
+        <div className='login-input-container'>
+          <input
+            type='text'
+            id='user'
+            minLength={5}
+            maxLength={15}
+            placeholder='Username'
+            required
+            value={username}
+            onChange={usernameHandler}
+          ></input>
+          <input
+            type='password'
+            id='password'
+            placeholder='Password'
+            minLength={12}
+            maxLength={64}
+            required
+            value={password}
+            onChange={passwordHandler}
+          ></input>
+          <button type='submit'>Sign In</button>
+        </div>
       </form>
     </div>
   );

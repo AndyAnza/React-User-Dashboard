@@ -30,6 +30,8 @@ li {
 .main {
   grid-area: main;
   padding: 0 20px;
+  display: grid;
+  align-content: center;
 }
 .footer {
   grid-area: footer;
