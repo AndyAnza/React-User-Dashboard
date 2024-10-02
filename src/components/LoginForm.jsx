@@ -29,7 +29,7 @@ export default function LoginForm() {
   }
 
   return (
-    <>
+    <div className='login-form'>
       <form onSubmit={loginHandler}>
         <h2>Login</h2>
         <input
@@ -54,6 +54,6 @@ export default function LoginForm() {
         ></input>
         <button type='submit'>Login</button>
       </form>
-    </>
+    </div>
   );
 }

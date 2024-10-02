@@ -1,0 +1,10 @@
+header {
+  text-align: center;
+  padding: 10px 0
+}
+
+header a {
+  color: white;
+  text-transform: uppercase;
+  text-decoration: none;
+}

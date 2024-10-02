@@ -1,0 +1,82 @@
+.table {
+  width: 100%;
+  margin-top: 15px;
+  text-align: center;
+  font-size: 1rem;
+  overflow: scroll;
+  text-overflow: ellipsis;
+  border: 0.5px solid rgba(255, 255, 255, 0.169);
+  background-color: #222020;
+  box-shadow:  23px 23px 46px #191818,
+               -23px -23px 46px #2b2828;
+}
+
+.table img {
+  border-radius: 40px;
+}
+
+@media only screen and (max-width: 760px),
+  (min-device-width: 768px) and (max-device-width: 1024px) {
+  /* Force table to not be like tables anymore */
+  .table table,
+  .table thead,
+  .table tbody,
+  .table th,
+  .table td,
+  .table tr {
+    display: block;
+  }
+
+  /* Hide table headers (but not display: none;, for accessibility) */
+  .table thead tr {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+
+  .table tr {
+    border: 1px solid;
+  }
+
+  .table td {
+    /* Behave  like a "row" */
+    border: none;
+    position: relative;
+    padding-left: 50%;
+    padding-bottom: 4px;
+    
+  }
+
+  .table td:before {
+    /* Now like a table header */
+    position: absolute;
+    /* Top/left values mimic padding */
+    top: 6px;
+    left: 6px;
+    width: 45%;
+    padding-right: 10px;
+    white-space: nowrap;
+  }
+
+  /*
+	Label the data
+	*/
+  .table td:nth-of-type(1):before {
+    content: 'First Name';
+  }
+  .table td:nth-of-type(2):before {
+    content: 'Last Name';
+  }
+  .table td:nth-of-type(3):before {
+    content: 'Gender';
+  }
+  .table td:nth-of-type(4):before {
+    content: 'Age';
+  }
+  .table td:nth-of-type(5):before {
+    content: 'Nationality';
+  }
+  .table td:nth-of-type(6):before {
+    content: 'Profile';
+  }
+}

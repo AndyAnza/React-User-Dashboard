@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useUsers } from '../context/UsersProvider';
+import '../assets/css/table.css';
 
 export default function UsersTable() {
   const { users, setUsers, loading, error } = useUsers();
@@ -17,7 +18,7 @@ export default function UsersTable() {
 
   return (
     <>
-      <table>
+      <table className='table'>
         <thead>
           <tr>
             <th scope='col'>Avatar</th>
@@ -27,7 +28,6 @@ export default function UsersTable() {
             <th scope='col'>Gender</th>
             <th scope='col'>Age</th>
             <th scope='col'>Nationality</th>
-            <th scope='col'>Email</th>
             <th scope='col'>Profile</th>
             <th scope='col'>Delete</th>
           </tr>
@@ -48,7 +48,6 @@ export default function UsersTable() {
               <td>{user.gender}</td>
               <td>{user.dob.age}</td>
               <td>{user.nat}</td>
-              <td>{user.email}</td>
               <td>
                 <a
                   href={`users/${user.login.uuid}`}
@@ -57,7 +56,7 @@ export default function UsersTable() {
                     localStorage.setItem('user', JSON.stringify(user));
                   }}
                 >
-                  Profile
+                  👤
                 </a>
               </td>
               <td>
@@ -70,7 +69,7 @@ export default function UsersTable() {
                       }
                     }}
                   >
-                    Delete
+                    ❌
                   </button>
                 ) : null}
               </td>

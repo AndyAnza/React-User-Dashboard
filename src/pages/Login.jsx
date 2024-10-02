@@ -5,7 +5,9 @@ export default function Login() {
   return (
     <>
       <Header />
-      <LoginForm />
+      <div className='main'>
+        <LoginForm />
+      </div>
     </>
   );
 }

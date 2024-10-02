@@ -6,15 +6,17 @@ import { UsersProvider } from '../context/UsersProvider';
 import Filters from '../components/Filters';
 
 export default function UsersList() {
-  useAuthRedirect();
+  // useAuthRedirect();
 
   return (
-    <>
+    <div className='layout'>
       <Header />
-      <UsersProvider>
-        <Filters />
-        <UsersTable />
-      </UsersProvider>
-    </>
+      <div className='main'>
+        <UsersProvider>
+          <Filters />
+          <UsersTable />
+        </UsersProvider>
+      </div>
+    </div>
   );
 }
